@@ -3,62 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason - Creative Designer</title>
+    <meta name="description" content="Jason - Product Designer. Designing user-centered digital experiences backed by research and measurable results.">
+    <title>Jason - Product Designer | UX Portfolio</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
     <main>
-        <section class="hero">
-            <h2>Crafting Digital Experiences</h2>
-            <p>I specialize in creating beautiful, intuitive designs that bridge the gap between users and technology. Let's build something extraordinary together.</p>
+        <section class="hero" aria-label="Hero section">
+            <div class="hero-content">
+                <h1>Product Designer</h1>
+                <h2>Solving Problems Through Design</h2>
+                <p>I design intuitive, user-centered digital experiences backed by research and measurable results. My process combines strategic thinking with attention to detail to create products that people love.</p>
+                <div class="hero-stats" aria-label="Key statistics">
+                    <div class="hero-stat">
+                        <span class="stat-number" aria-label="Fifty plus">50+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number" aria-label="Three years plus">3+ yrs</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number" aria-label="One hundred percent">100%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Parallax Section 1 -->
-        <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop');">
+        <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop'); background-attachment: fixed;" aria-label="Design thinking section">
             <div class="parallax-overlay"></div>
             <div class="parallax-content">
-                <h3>Design Thinking</h3>
+                <h2>Design Thinking</h2>
                 <p>Creating solutions that matter</p>
             </div>
         </section>
 
         <!-- Services Overview -->
-        <section class="services-overview">
-            <h2>What I Offer</h2>
+        <section class="services-overview" aria-label="Design approach and services">
+            <h2>My Design Approach</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Brand Identity</h3>
-                    <p>Crafting distinctive visual identities that resonate with your audience and communicate your values.</p>
+                    <div class="service-icon" aria-label="Search icon">🔍</div>
+                    <h3>Research & Insights</h3>
+                    <p>Deep user research and competitive analysis to uncover the real problem before jumping to solutions.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🖥️</div>
-                    <h3>UI/UX Design</h3>
-                    <p>Designing intuitive interfaces that prioritize user experience and drive engagement.</p>
+                    <div class="service-icon" aria-label="Pencil icon">✏️</div>
+                    <h3>Ideation & Prototyping</h3>
+                    <p>Collaborative brainstorming and rapid prototyping to explore multiple design directions and validate concepts.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Digital Strategy</h3>
-                    <p>Aligning design with business objectives to create meaningful digital experiences.</p>
+                    <div class="service-icon" aria-label="Target icon">🎯</div>
+                    <h3>User-Centered Design</h3>
+                    <p>Designing intuitive interfaces that prioritize user needs with accessibility and performance in mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon" aria-label="Chart icon">📊</div>
+                    <h3>Testing & Iteration</h3>
+                    <p>Usability testing, data analysis, and continuous improvement based on real user feedback and metrics.</p>
                 </div>
             </div>
         </section>
 
         <!-- Parallax Section 2 -->
-        <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop');">
+        <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop'); background-attachment: fixed;" aria-label="Digital innovation section">
             <div class="parallax-overlay"></div>
             <div class="parallax-content">
-                <h3>Digital Innovation</h3>
+                <h2>Digital Innovation</h2>
                 <p>Where creativity meets technology</p>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section">
+        <section class="cta-section" aria-label="Call to action section">
             <h2>Let's Create Something Amazing</h2>
             <p>Whether you have a project in mind or just want to chat about design, I'd love to hear from you.</p>
-            <a href="pages/contact.html" class="cta-button">Get In Touch</a>
+            <a href="pages/contact.html" class="cta-button" aria-label="Navigate to contact page to get in touch">Get In Touch</a>
         </section>
     </main>
 
