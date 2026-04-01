@@ -1,9 +1,12 @@
 /**
  * Parallax Scroll Effect
- * Enhances visual depth on supported browsers
+ * Enhances visual depth on supported browsers with optimized performance
  */
 (function() {
     'use strict';
+
+    let ticking = false;
+    let lastScrollY = 0;
 
     // Check if browser supports background-attachment: fixed
     const supportsParallax = () => {
@@ -12,26 +15,31 @@
         return div.style.backgroundAttachment === 'fixed';
     };
 
-    // Enhanced parallax for browsers that need it
+    // Enhanced parallax for browsers that need it with RAF optimization
     const initParallax = () => {
         if (!supportsParallax()) {
             // Fallback: Simple scroll-based parallax using transform
             const parallaxSections = document.querySelectorAll('.parallax-section');
 
-            const handleScroll = () => {
+            const updateParallax = () => {
                 parallaxSections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const scrolled = window.pageYOffset;
                     const sectionTop = section.offsetTop;
-
-                    // Calculate parallax offset (30% of scroll distance)
-                    const yPos = (window.pageYOffset - sectionTop) * 0.3;
+                    const yPos = (lastScrollY - sectionTop) * 0.3;
 
                     const bgImg = window.getComputedStyle(section).backgroundImage;
                     if (bgImg && bgImg !== 'none') {
                         section.style.backgroundPosition = `center ${yPos}px`;
                     }
                 });
+                ticking = false;
+            };
+
+            const handleScroll = () => {
+                lastScrollY = window.pageYOffset;
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
             };
 
             window.addEventListener('scroll', handleScroll, { passive: true });
@@ -48,6 +56,7 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    // Don't unobserve - allows re-animation on re-scroll
                 }
             });
         }, observerOptions);
@@ -60,7 +69,7 @@
             observer.observe(content);
         });
 
-        // Animate service and expertise cards on scroll
+        // Animate service and expertise cards on scroll with RAF
         const cards = document.querySelectorAll(
             '.service-card, .expertise-item, .approach-item'
         );
@@ -70,7 +79,6 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                    cardObserver.unobserve(entry.target);
                 }
             });
         }, {
