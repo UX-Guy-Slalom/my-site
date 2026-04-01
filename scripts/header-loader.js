@@ -91,7 +91,7 @@
             }
 
             if (isActive) {
-                link.style.color = '#60a5fa';
+                link.style.color = '#e9d5ff';
             }
         });
     };
